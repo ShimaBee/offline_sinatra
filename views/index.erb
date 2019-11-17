@@ -12,3 +12,12 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
+
+<div class="timeline">
+  <% @posts.each do |post|%>
+    <div class="post_wrapper">
+      <p>title: <%= post['title']%></p>
+      <p>contents: <%= post['contents']%></p>
+    </div>
+  <% end%>
+</div>

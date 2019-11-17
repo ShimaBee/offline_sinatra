@@ -7,6 +7,7 @@ enable :sessions
 db = PG::connect(:dbname => "offline_sinatra_app")
 
 get '/' do
+  @posts = db.exec('select * from posts order by id desc')
   erb :index
 end
 
