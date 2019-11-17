@@ -1,14 +1,20 @@
 <div class="form-wrapper">
 <h1>index.erb</h1>
-  <form action="/post" method="post">
+  <form action="/post" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="title_input">タイトル</label>
-      <input type="text" class="form-control" id="title_input" placeholder="title" name="title">
+      <input type="text" class="form-control" id="title_input" placeholder="title" name="title" required>
     </div>
     <div class="form-group">
       <label for="contents_input">内容</label>
-      <textarea class="form-control" id="cintents_input" rows="3" name="contents"></textarea>
+      <textarea class="form-control" id="cintents_input" rows="3" name="contents" required></textarea>
     </div>
+
+    <div class="form-group">
+      <label for="image_form">Example file input</label>
+      <input type="file" class="form-control-file" id="image_form" name="image" required>
+    </div>
+
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
@@ -18,6 +24,7 @@
     <div class="post_wrapper">
       <p>title: <%= post['title']%></p>
       <p>contents: <%= post['contents']%></p>
+      <img src="./images/<%= post['image']%>" alt="">
     </div>
   <% end%>
 </div>

@@ -43,6 +43,8 @@ end
 post '/post' do
   title = params[:title]
   contents = params[:contents]
-  db.exec("insert into posts (title, contents) values($1, $2)",[title, contents])
+  image =  params[:image][:filename]
+  FileUtils.mv(params[:image][:tempfile], "./public/images/#{params[:image][:filename]}")
+  db.exec("insert into posts (title, contents, image) values($1, $2, $3)",[title, contents,image])
   redirect '/'
 end
