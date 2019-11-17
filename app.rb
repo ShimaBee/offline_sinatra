@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'pg'
 
+enable :sessions
+
 db = PG::connect(:dbname => "offline_sinatra_app")
 
 get '/' do
@@ -22,6 +24,19 @@ end
 
 get '/login' do
   erb :login
+end
+
+post '/login' do
+  name = params[:name]
+  password = params[:password]
+  # binding.irb
+  id = db.exec("select id from users where name = $1 and password = $2",[name, password]).first
+  if id
+    session[:user_id] = id['id']
+    redirect '/'
+  else
+    redirect '/login'
+  end
 end
 
 post '/post' do
