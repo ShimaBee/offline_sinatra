@@ -1,3 +1,15 @@
-<h1>login.erb</h1>
-<a href="/signup">signup</a>
-<a href="/">index</a>
+<div class="form-wrapper">
+<h1>login</h1>
+<form>
+  <div class="form-group">
+    <label for="user_name">Name</label>
+    <input class="form-control" id="user_name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
