@@ -1,3 +1,17 @@
 <h1>index.erb</h1>
 <a href="/signup" class="btn btn-primary">signup</a>
 <a href="/login" class="btn btn-primary">login</a>
+
+<div class="form-wrapper">
+  <form action="/post" method="post">
+    <div class="form-group">
+      <label for="title_input">タイトル</label>
+      <input type="text" class="form-control" id="title_input" placeholder="title" name="title">
+    </div>
+    <div class="form-group">
+      <label for="contents_input">内容</label>
+      <textarea class="form-control" id="cintents_input" rows="3" name="contents"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

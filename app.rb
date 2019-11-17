@@ -23,3 +23,10 @@ end
 get '/login' do
   erb :login
 end
+
+post '/post' do
+  title = params[:title]
+  contents = params[:contents]
+  db.exec("insert into posts (title, contents) values($1, $2)",[title, contents])
+  redirect '/'
+end
